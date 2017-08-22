@@ -80,7 +80,8 @@ var DraftEditorDragHandler = {
       }
 
       getTextContentFromFiles(files, function (fileText) {
-        fileText && editor.update(insertTextAtSelection(editorState, dropSelection, fileText));
+        fileText && editor.update(insertTextAtSelection(editorState, nullthrows(dropSelection), // flow wtf
+        fileText));
       });
       return;
     }

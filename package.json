@@ -4,13 +4,9 @@
   "private": true,
   "dependencies": {
     "antd": "2.10.0",
-    "babel": "^6.23.0",
-    "babel-cli": "^6.24.1",
     "draftjs-to-html": "^0.7.2",
     "draftjs-to-markdown": "^0.4.2",
-    "fetch-jsonp": "^1.0.6",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
+    "fetch-jsonp": "^1.0.6", 
     "moment": "^2.18.1",
     "photoswipe": "^4.1.2",
     "prop-types": "^15.5.10",
@@ -25,7 +21,10 @@
     "redux-actions": "^2.0.3"
   },
   "devDependencies": {
+
     "autoprefixer": "7.1.2",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "^20.0.3",
@@ -62,6 +61,8 @@
     "http-proxy-middleware": "0.17.3",
     "jest": "20.0.4",
     "json-loader": "0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -132,4 +133,5 @@
   "eslintConfig": {
     "extends": "react-app"
   }
+
 }

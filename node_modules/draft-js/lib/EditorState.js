@@ -328,10 +328,8 @@ var EditorState = function () {
 
     var inlineStyleOverride = editorState.getInlineStyleOverride();
 
-    // Don't discard inline style overrides for the following change types:
-    var overrideChangeTypes = ['adjust-depth', 'change-block-type', 'split-block'];
-
-    if (overrideChangeTypes.indexOf(changeType) === -1) {
+    // Don't discard inline style overrides on block type or depth changes.
+    if (changeType !== 'adjust-depth' && changeType !== 'change-block-type') {
       inlineStyleOverride = null;
     }
 

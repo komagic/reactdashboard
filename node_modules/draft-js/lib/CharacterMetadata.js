@@ -55,7 +55,7 @@ var CharacterMetadata = function (_CharacterMetadataRec) {
   };
 
   CharacterMetadata.prototype.hasStyle = function hasStyle(style) {
-    return this.getStyle().includes(style);
+    return this.getStyle().has(style);
   };
 
   CharacterMetadata.applyStyle = function applyStyle(record, style) {
