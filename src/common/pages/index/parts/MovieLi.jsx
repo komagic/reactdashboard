@@ -16,8 +16,8 @@ componentWillReceiveProps = (nextProps) => {
     render() {      
         let data= this.props.mdata.subjects||[];
  
-        const mli= data.map(function (ele){
-            return ( <li className="list-group-item">
+        const mli= data.map(function (ele,index){
+            return ( <li key={"moveLi"+index} className="list-group-item">
                     <a className="pull-left w-40 mr-m">
                       <img
                         src={ele.images.small}

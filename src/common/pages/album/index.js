@@ -2,20 +2,39 @@
  * Created by bt on 2017/6/3.
  */
 import React from 'react';
-import { Row, Col, Card } from 'antd';
+import { Row, Col, Card} from 'antd';
 import PhotoSwipe from 'photoswipe';
 import PhotoswipeUIDefault from 'photoswipe/dist/photoswipe-ui-default';
 import 'photoswipe/dist/photoswipe.css';
 import 'photoswipe/dist/default-skin/default-skin.css';
+import LazyLoad from 'react-lazyload';
 
 
 export default class Gallery extends React.Component {
-    state = {
-        gallery: null
-    };
+
+    constructor(props) {
+        super(props)
+       this.state = {
+            gallery: null,
+        }
+
+     this.finishImageLoaded=this.finishImageLoaded.bind(this);
+     this.ImageLoadedError=this.ImageLoadedError.bind(this);
+    }
+
     componentWillUnmount = () => {
         this.closeGallery();
     };
+
+    finishImageLoaded() {
+        this.setState({ loading: false });
+        console.log(' finishImageLoaded');
+      }
+
+    ImageLoadedError(){
+        this.setState({ loading: false});
+      }
+
     openGallery = (item) => {
         const items = [
             {
@@ -49,7 +68,7 @@ export default class Gallery extends React.Component {
     render() {
         const imgs = [
             [
-                'http://img.hb.aicdn.com/1cad414972c5db2b8c1942289e3aeef37175006a8bb16-CBtjtX_fw',
+                'http://img.hb.aicdn.com/8c5d5f2bf6427d1b5ed8657a7ae0c9938d3465e367899-AJ0zVA_fw',
                 'http://img.hb.aicdn.com/016f2e13934397e17c3482a4529f3da1149d37fd2a99c-RVM1Gi_fw',
                 'http://img.hb.aicdn.com/8c5d5f2bf6427d1b5ed8657a7ae0c9938d3465e367899-AJ0zVA_fw',
                 'http://img.hb.aicdn.com/bd71ccac0b16bbcade255a1a8a63504d71c7dee9a8652-zBCN9d_fw',
@@ -78,21 +97,24 @@ export default class Gallery extends React.Component {
                 'http://img.hb.aicdn.com/bd3ba3f907fe098b911947e0020615b50fc340ed2df72-WsuHuM_fw'
             ],
             [
-                'http://img.hb.aicdn.com/71471aaac95eade66400a390863b37c76d9addcd14982-0H6sak_fw',
-                'http://img.hb.aicdn.com/cb16c68c4d3b7a08b5e91cd351f6b723634ca3fc27d4d-m1JD8z_fw',
-                'http://img.hb.aicdn.com/e3559b6e8d7237857382050e5659a64cc0b7d696a2869-stcRXA_fw',
-                'http://img.hb.aicdn.com/4ea229436fcf2077502953907a6afb16d3c5cd611b8e2-0dVIeH_fw',
-                'http://img.hb.aicdn.com/98c786f4314736f95a42bf927bf65a82d305a532c6258-njI6id_fw'
+                'https://hbimg.b0.upaiyun.com/6293fd60a2597a6017633e3c8e3816d89b70dc2165ad9-jkFvRh_fw658',
+                'https://hbimg.b0.upaiyun.com/6293fd60a2597a6017633e3c8e3816d89b70dc2165ad9-jkFvRh_fw658',
+                'https://hbimg.b0.upaiyun.com/6293fd60a2597a6017633e3c8e3816d89b70dc2165ad9-jkFvRh_fw658',
+                'https://hbimg.b0.upaiyun.com/6293fd60a2597a6017633e3c8e3816d89b70dc2165ad9-jkFvRh_fw658',
+                'https://hbimg.b0.upaiyun.com/6293fd60a2597a6017633e3c8e3816d89b70dc2165ad9-jkFvRh_fw658'
             ]
         ];
+
+
         const imgsTag = imgs.map(v1 => (
-            v1.map(v2 => (
-                <div className="cloud-box">
+            v1.map((v2,index) => (
+                <div key={"cb_"+index} className="cloud-box">
                     <Card bordered={true} bodyStyle={{ padding: 0 }}>
-                        <div>
-                            <img onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />
-                        </div>
+                        <LazyLoad>
+                            <img onLoad={this.finishImageLoaded} onError={this.ImageLoadedError} onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />
+                        </LazyLoad>
                         <div className="pa-m">
+                       
                             <h3>bt</h3>
                             <small><a href="#" target="_blank" rel='noopener noreferrer'>photo</a></small>
                         </div>

@@ -17,6 +17,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-draft-wysiwyg": "^1.10.0",
+    "react-lazyload": "^2.2.7",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
@@ -131,5 +132,4 @@
   "eslintConfig": {
     "extends": "react-app"
   }
-  
 }
