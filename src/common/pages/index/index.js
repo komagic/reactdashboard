@@ -2,29 +2,24 @@ import React from "react";
 import { Row, Col, Card, Timeline, Icon,Badge  } from "antd";
 import EchartsViews from "./EchartsViews";
 import EchartsProjects from "./EchartsProjects";
-
 import "./index.less";
 import fetchJsonp from "fetch-jsonp";
 import MovieLi from "./parts/MovieLi";
 
-
 export default class index extends React.Component {
 
-  
 
   constructor(props) {
     super(props);
     this.state = {
       douBanData: {},
       item:{},
-     
+
     };
 
 
     this.getDouBanBooks=this.getDouBanBooks.bind(this);
   }
-
-  
   //获取豆瓣电影热榜
   getDouBanBooks = xurl => {
     fetchJsonp(xurl, { jsonCallback: "jsonCallback" })
@@ -32,10 +27,9 @@ export default class index extends React.Component {
         return res.json();
       })
       .then(data => {
-        
         this.setState({douBanData:data});
         this.setState({item:data.subjects})
-       
+
 
       })
       .catch(e => {
@@ -44,14 +38,10 @@ export default class index extends React.Component {
   };
 
 
-
-
   componentWillMount() {
-    let xhrul = "http://api.douban.com/v2/movie/in_theaters?start=0&count=5";
+    let xhrul = "https://api.douban.com/v2/movie/in_theaters?start=0&count=5";
     this.getDouBanBooks(xhrul);
   }
-
-
 
 
   render() {
