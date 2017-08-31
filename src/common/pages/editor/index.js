@@ -77,7 +77,7 @@ export default class wysiwyg extends Component {
                                         image: { uploadCallback: this.imageUploadCallBack },
                                     }}
                                     onContentStateChange={this.onEditorChange}
-                                    placeholder="尝试输入 @ 哦，有惊喜"
+                                    placeholder=""
                                     spellCheck
                                     onFocus={() => {console.log('focus')}}
                                     onBlur={() => {console.log('blur')}}

@@ -88,7 +88,7 @@ export default class Music extends React.Component {
                         country: songList[i].data.albumname,
                         singer: songList[i].singer,
                         songid:songList[i].data.songid,
-                        album:"https://y.gtimg.cn/music/photo_new/T002R150x150M000"+songList[i].data.albummid+".jpg?max_age=2592000"
+                        album:"https://y.gtimg.cn/music/photo_new/T002R150x150M000"+songList[i].data.albummid+".jpg?"
                         
                     })
                 }
