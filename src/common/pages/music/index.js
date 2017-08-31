@@ -51,7 +51,8 @@ export default class Music extends React.Component {
 
         fetchJsonp("https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=" + typeId + "&_=1492910996732", {
                
-                 jsonpCallback:"jsonpCallback"
+                 jsonpCallback:"jsonpCallback",
+                 
         
             })
             .then((res) => {
